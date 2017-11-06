@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fabric:</strong>
+  <%= @order.fabric_id %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @order.number %>
+</p>
+
+<p>
+  <strong>Paymentoptions:</strong>
+  <%= @order.paymentoptions %>
+</p>
+
+<p>
+  <strong>Accept:</strong>
+  <%= @order.accept %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
