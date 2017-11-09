@@ -56,12 +56,12 @@
 		</div>
 		<div class="col-lg-6 col-md-12">
 			<h5>Contact Request</h5>
-			<% @allcontacts.each do |user| %>
+			<% @allcontacts.each do |contact| %>
              <p class="constyle">
-             <span><%= contact.name %> <%= user.lastname %></span><br>
-             <span><%= contact.phonenumer %></span><br>
+             <span><%= contact.name %></span><br>
+             <span><%= contact.phonenumber %></span><br>
              <span><%= contact.email %></span><br>
-             <span><%= contact.message %> </span>
+             <span><strong>Message: </strong><%= contact.message %> </span>
              </p>
 			<% end %>
 		</div>
