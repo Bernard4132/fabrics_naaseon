@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-
+default_scope -> { order('created_at DESC') }
 attr_writer :current_step
 
 	def current_step

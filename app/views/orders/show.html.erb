@@ -1,24 +1,63 @@
+<div class="container">
+<div class="row justify-content-center" style="margin-top: 80px;">
+  <div class="col-md-6 col-md-offset-3">
+<div class="holdformsi">
+<h2 style="text-align: left; font-family: 'Poppins', sans-serif;">Order details</h2>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Fabric:</strong>
-  <%= @order.fabric_id %>
+  <strong>Product:</strong>
+  <%= @order.title %>
 </p>
 
 <p>
   <strong>Number:</strong>
-  <%= @order.number %>
+  <%= @order.number %> yards
 </p>
 
 <p>
-  <strong>Paymentoptions:</strong>
+  <strong>Message:</strong>
+  <%= @order.message %>
+</p>
+
+<p>
+  <strong>Payment Option:</strong>
   <%= @order.paymentoptions %>
 </p>
 
 <p>
-  <strong>Accept:</strong>
+  <strong>Delivery:</strong>
+  <%= @order.delivery %>
+</p>
+<hr>
+<h3>Contact Details</h3>
+
+<p>
+  <strong>Buyer Name:</strong>
+  <%= @order.name %>
+</p>
+
+<p>
+  <strong>Buyer Phone:</strong>
+  <%= @order.phone %>
+</p>
+
+<p>
+  <strong>Buyer Email:</strong>
+  <%= @order.email %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
   <%= @order.accept %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<p style="text-align: right;"><%= link_to "Fulfill Order" , fulfill_order_path(@order), method: :post, :class => "btn btn-success btn-small" %></p>
+
+</div>
+</div>
+</div>
+
+</div>
+

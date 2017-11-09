@@ -23,6 +23,14 @@ class OrdersController < ApplicationController
   def edit
   end
 
+  def fulfill
+  @order = Order.find(params[:id])
+  @order.update(fulfilled: true)
+  OrderMailer.order_fulfillment_alert(@order).deliver_later
+  redirect_to "/mydashboard"
+  flash[:notice] = 'Order fulfilled by Admin.'
+end
+
   # POST /orders
   # POST /orders.json
  def create
@@ -43,8 +51,8 @@ class OrdersController < ApplicationController
     render "new"
   else
     session[:order_step] = session[:order_params] = nil
-    flash[:notice] = "Order made successfully!"
-    redirect_to @order
+    flash[:notice] = "Your order has been made successfully to Naaseon Fabrics. You will be contacted soon. Thank you!"
+    redirect_to "/"
   end
 end
 
@@ -81,6 +89,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:fabric_id, :number, :paymentoptions, :accept)
+      params.require(:order).permit(:fabric_id, :number, :paymentoptions, :accept, :title, :message, :delivery, :name, 
+                                    :email, :phone, :fulfilled)
     end
 end

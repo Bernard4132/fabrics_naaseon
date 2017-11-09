@@ -15,12 +15,16 @@
 
   
    <%= render "#{@order.current_step}_step", :f => f %>
-  <p><%= f.submit "Continue" %></p>
-  <p><%= f.submit "Back", :name => "back_button" unless @order.first_step? %></p>
+  
+<div class="container">
+  <div class="row" style="margin-top: 10px;">    
+    <div class="col-lg-12">
+<p><%= f.submit "Continue", :class => "btn btn-primary" %>
+  <%= f.submit "Back", :class => "btn btn-light", :name => "back_button" unless @order.first_step? %></p>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ 
+</div>
+</div>
+</div>
+
 <% end %>
-
-<%= link_to 'Back', orders_path %>
