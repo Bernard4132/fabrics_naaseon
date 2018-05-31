@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @request.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @request.email %>
+</p>
+
+<p>
+  <strong>Phonenumber:</strong>
+  <%= @request.phonenumber %>
+</p>
+
+<p>
+  <strong>Paymentmethod:</strong>
+  <%= @request.paymentmethod %>
+</p>
+
+<p>
+  <strong>Deliverydet:</strong>
+  <%= @request.deliverydet %>
+</p>
+
+<p>
+  <strong>Fabric:</strong>
+  <%= @request.fabric_id %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :requests
+  resources :fabrics
   devise_for :users
   resources :contacts
   

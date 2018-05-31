@@ -24,6 +24,10 @@ gem 'devise'
 
 gem 'bcrypt', '~> 3.1.11', platforms: [:ruby, :x64_mingw, :mingw]
 
+gem 'carrierwave', '~> 1.0'
+
+gem 'fog'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
