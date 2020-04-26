@@ -22,6 +22,14 @@ class FabricsController < ApplicationController
   def edit
   end
 
+  def kenteclothes
+    @kentefabs = Fabric.where(ctype: "kente").all
+  end
+
+  def fabricsclothes
+    @clothfabs = Fabric.where(ctype: "cloth").all
+  end
+
   # POST /fabrics
   # POST /fabrics.json
   def create
