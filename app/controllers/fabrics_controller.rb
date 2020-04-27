@@ -24,10 +24,12 @@ class FabricsController < ApplicationController
 
   def kenteclothes
     @kentefabs = Fabric.where(ctype: "kente").all
+    @request = Request.new
   end
 
   def fabricsclothes
     @clothfabs = Fabric.where(ctype: "cloth").all
+    @request = Request.new
   end
 
   # POST /fabrics
