@@ -67,7 +67,7 @@ class FabricsController < ApplicationController
   def destroy
     @fabric.destroy
     respond_to do |format|
-      format.html { redirect_to fabrics_url, notice: 'Fabric was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Fabric was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
