@@ -6,6 +6,7 @@
         	<span style="font-weight: 500; font-size: 18px;"><%= fabric.title %></span><br>
         	<span style="font-weight: 300; font-size: 12px;"><%= fabric.price %></span>
         </p>
+        <%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %>
         <p style="text-align: right;  margin-top: 0px;">
         	<a class="btn btn-warning bookbtn" data-toggle="modal" href="#bookTourModal_<%= fabric.id %>">Request for this Fabric</a>
         </p>
