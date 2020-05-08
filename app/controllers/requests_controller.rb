@@ -28,7 +28,7 @@ class RequestsController < ApplicationController
     @request.fabric = @fabric
     respond_to do |format|
       if @request.save
-        format.html { redirect_to "/fabrics" }
+        format.html { redirect_to @request }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
