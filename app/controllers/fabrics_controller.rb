@@ -32,6 +32,11 @@ class FabricsController < ApplicationController
     @request = Request.new
   end
 
+  def fascinators
+    @fascinators = Fabric.where(ctype: "fascinator").all
+    @request = Request.new
+  end
+
   # POST /fabrics
   # POST /fabrics.json
   def create

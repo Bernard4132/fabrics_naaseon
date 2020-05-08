@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   match 'about', to: 'static_pages#about', via: 'get'
   match 'kenteclothes', to: 'fabrics#kenteclothes', via: 'get'
   match 'fabricsclothes', to: 'fabrics#fabricsclothes', via: 'get'
+  match 'fascinators', to: 'fabrics#fascinators', via: 'get'
   match 'fabricsandclothes', to: 'static_pages#fabricsandclothes', via: 'get'
   match 'mydashboard', to: 'static_pages#mydashboard', via: 'get'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
