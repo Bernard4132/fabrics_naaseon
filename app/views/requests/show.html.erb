@@ -33,6 +33,7 @@
         <strong>Deliverydet:</strong>
         <%= @request.deliverydet %>
       </p>
+
       <form >
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <p style="text-align: left;">
@@ -53,17 +54,26 @@
 
 
 
-<script type="text/javascript">
-  payWithPaystack();
-</script>
+
 
 <script>
 
+ var price = 0;
+
+  <% if @request.gender == "male" %>
+    price = <%= @request.fabric.maleprice %>
+  <% end %>
+
+  <% if @request.gender == "female" %>
+    price = <%= @request.fabric.fabprice %>
+  <% end %>
+
   function payWithPaystack(){
+     
     var handler = PaystackPop.setup({
       key: 'pk_test_441d4d74c96ff88d6ba5a70231c43102644475a4',
       email: "<%= @request.email.to_s %>",
-      amount: <%= @request.fabric.fabprice * 100 %>,
+      amount: price * 100,
       currency: "GHS",
       ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
       metadata: {

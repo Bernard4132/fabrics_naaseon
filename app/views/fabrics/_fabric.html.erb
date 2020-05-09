@@ -54,6 +54,20 @@
     <%= f.text_field :phonenumber, :class => "form-control", :placeholder => "Your phone number." %>
   </div>
 
+  <div class="form-group">
+    <label style="font-weight: 500;">For Male / Female</label>
+    <br>
+    <span>
+    <input type="radio" name="request[gender]" id="request_gender" value="male"/>
+    Male
+    <input type="radio" name="request[gender]" id="request_gender" value="female"/>
+    Female
+    </span>
+    <div id="ValidationError" name="ValidationError" style="color: red;">
+    &nbsp;
+    </div>
+  </div>
+
   <p style="margin-top: 10px; font-weight: 500;"> Your prefered payment method.</p>
   <input type="radio" name="request[paymentmethod]" id="request_paymentmethod" name="order[delivery]"value="Mobile Money" onclick="calculateTotal()" />
   <label><span style="margin-right: 5px;">Mobie Money</span></label>
@@ -80,9 +94,26 @@
   
       </div>
       <div class="modal-footer">
-        <%= f.submit "Request", :class => "btn btn-warning" %>
+        <input type="submit" value="Submit" onclick="return Validate();" />
       </div>
     <% end %>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+function Validate() {
+    var radios = document.getElementsByName('request[gender]')
+
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+        alert("Selected Value = " + radios[i].value);
+        return true; // checked
+    }
+    };
+
+    // not checked, show error
+    document.getElementById('ValidationError').innerHTML = 'Please select a gender type!';
+    return false;
+}
+</script>

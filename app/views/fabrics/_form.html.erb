@@ -28,9 +28,16 @@
 
 
   <div class="form-group">
-    <%= f.label :price %>
+    <label>Female price</label>
     <%= f.number_field :fabprice, :class => "form-control" %>
   </div>
+
+  <div class="form-group">
+    <label>Male price</label>
+    <%= f.number_field :maleprice, :class => "form-control" %>
+  </div>
+
+  
 
   <div class="form-group">
     <select class="form-control" name="fabric[ctype]" id="fabric_ctype" onchange="calculateTotal()" required>
