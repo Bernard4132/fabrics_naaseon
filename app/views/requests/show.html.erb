@@ -34,19 +34,24 @@
         <%= @request.deliverydet %>
       </p>
 
+      <% if @request.paymentmethod == "cashapp" %>
+        Make payment to cash App account <span style="font-weight: 700;">CarolineBrew</span>
+      <% else %>
+
       <form >
-  <script src="https://js.paystack.co/v1/inline.js"></script>
-  <p style="text-align: left;">
-  <button type="button" class="btn btn-lg btn-success btnformpay" id="paymentbutton" onclick="payWithPaystack()"> 
-  Make Payment 
-  </button>
-  </p>
-  
-  <!--
-  <a id="paymentconfirm" style="display: none;" href="/api/v1/updateuserpaid?user_id=1sLRbhzJ3oOp6Togw7AfCMPjhLf2&subscripttype=semester">Confirm Payment</a>
-  -->
-  <span id="myuserid" style="color: black; font-size: 30px;"> </span>
-</form>
+      <script src="https://js.paystack.co/v1/inline.js"></script>
+      <p style="text-align: left;">
+      <button type="button" class="btn btn-lg btn-success btnformpay" id="paymentbutton" onclick="payWithPaystack()"> 
+      Make Payment 
+      </button>
+      </p>
+      
+      <!--
+      <a id="paymentconfirm" style="display: none;" href="/api/v1/updateuserpaid?user_id=1sLRbhzJ3oOp6Togw7AfCMPjhLf2&subscripttype=semester">Confirm Payment</a>
+      -->
+      <span id="myuserid" style="color: black; font-size: 30px;"> </span>
+    </form>
+    <% end %>
     </div>
   </div>
 </div>
