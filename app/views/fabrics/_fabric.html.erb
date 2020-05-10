@@ -6,6 +6,14 @@
         	<span style="font-weight: 500; font-size: 18px;"><%= fabric.title %></span><br>
         	<span style="font-weight: 300; font-size: 12px;"><%= fabric.price %></span>
         </p>
+
+        <% if fabric.ctype == "kente" %>
+          <p>Female: <span>$ <%= fabric.fabprice / 5.9 %></span></p>
+
+          <p>Male: <span>$ <%= fabric.fabprice / 5.9 %></span></p>
+        <% else %>
+        <p>Price: <span>$ <%= fabric.fabprice / 5.9 %></span></p>
+        <% end %>
         
        <!--  <%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%= link_to 'Edit', edit_fabric_path(fabric) %> -->
@@ -72,8 +80,8 @@
   <input type="radio" name="request[paymentmethod]" id="request_paymentmethod" name="order[delivery]"value="Mobile Money" onclick="calculateTotal()" />
   <label><span style="margin-right: 5px;">Mobie Money</span></label>
 
-    <input type="radio" name="request[paymentmethod]" id="request_paymentmethod" value="Cash on delivery" onclick="calculateTotal()" />
-  <label><span style="margin-right: 5px;">Cash on Delivery</span></label>
+  <input type="radio" name="request[paymentmethod]" id="request_paymentmethod" value="cashapp" onclick="calculateTotal()" />
+  <label><span style="margin-right: 5px;">pay with Cash App</span></label>
 <br>
 
 <p style="margin-top: 10px; font-weight: 500;">Your prefered delivery method.</p>
