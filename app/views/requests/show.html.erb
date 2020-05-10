@@ -34,9 +34,20 @@
         <%= @request.deliverydet %>
       </p>
 
-      <% if @request.paymentmethod == "cashapp" %>
-        Make payment to cash App account <span style="font-weight: 700;">CarolineBrew</span>
-      <% else %>
+     
+        <% if @request.paymentmethod == "cashapp" %>
+         <p>
+          <span>Make payment of </span>
+          <% if @request.gender == "male" %>
+            <%= @request.fabric.maleprice %>
+          <% end %>
+          <% if @request.gender == "female" %>
+            <%= @request.fabric.fabprice %>
+          <% end %>
+           <span> to CashApp account with name id <strong>CarolineBrew</strong></span>
+         </p>
+        <% else %>
+      
 
       <form >
       <script src="https://js.paystack.co/v1/inline.js"></script>
