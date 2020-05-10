@@ -39,10 +39,10 @@
          <p>
           <span>Make payment of </span>
           <% if @request.gender == "male" %>
-            <%= @request.fabric.maleprice %>
+            $<%= (@request.fabric.maleprice / 5.9).round(1) %>
           <% end %>
           <% if @request.gender == "female" %>
-            <%= @request.fabric.fabprice %>
+            $<%= (@request.fabric.fabprice / 5.9).round(1) %>
           <% end %>
            <span> to CashApp account with name id <strong>CarolineBrew</strong></span>
          </p>
