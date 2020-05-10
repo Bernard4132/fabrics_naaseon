@@ -7,8 +7,8 @@
         	<span style="font-weight: 300; font-size: 12px;"><%= fabric.price %></span>
         </p>
         
-        <%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Edit', edit_fabric_path(fabric) %>
+       <!--  <%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_fabric_path(fabric) %> -->
         <p style="text-align: right;  margin-top: 0px;">
         	<a class="btn btn-warning bookbtn" data-toggle="modal" href="#bookTourModal_<%= fabric.id %>">Request for this Fabric</a>
         </p>
@@ -107,7 +107,7 @@ function Validate() {
 
     for (var i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
-        alert("Selected Value = " + radios[i].value);
+        // alert("Selected Value = " + radios[i].value);
         return true; // checked
     }
     };
