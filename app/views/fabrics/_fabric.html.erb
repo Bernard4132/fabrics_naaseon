@@ -7,10 +7,18 @@
         	<span style="font-weight: 300; font-size: 12px;"><%= fabric.price %></span>
         </p>
 
+        <% if fabric.ctype == "kente" %>
+          <p>
+            <span>Price</span><br>
+            <span>$ <%= (fabric.fabprice / 5.9).round(1) %></span> <span style="font-size: 12px;"> Female price</span>
+            <br>
+          <span>$ <%= (fabric.maleprice / 5.9).round(1) %> <span style="font-size: 12px;"> Male price</span></span></p>
+        <% else %>
+        <p><span>$ <%= (fabric.fabprice / 5.9).round(1) %> </span> <span style="font-size: 12px;">Price</span></p>
+        <% end %>
         
-        
-        <%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Edit', edit_fabric_path(fabric) %> 
+       <!--  <%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_fabric_path(fabric) %> -->
         <p style="text-align: right;  margin-top: 0px;">
         	<a class="btn btn-warning bookbtn" data-toggle="modal" href="#bookTourModal_<%= fabric.id %>">Request for this Fabric</a>
         </p>
