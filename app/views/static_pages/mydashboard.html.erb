@@ -55,13 +55,13 @@
 			<%= render @allorders %>
 		</div>
 		<div class="col-lg-6 col-md-12">
-			<h5>Contact Request</h5>
-			<% @allcontacts.each do |contact| %>
+			<h5>Frabric Request</h5>
+			<% @allrequests.each do |request| %>
              <p class="constyle">
-             <span><%= contact.name %></span><br>
-             <span><%= contact.phonenumber %></span><br>
-             <span><%= contact.email %></span><br>
-             <span><strong>Message: </strong><%= contact.message %> </span>
+             <span><%= request.name %></span><br>
+             <span><%= request.phonenumber %></span><br>
+             <span><%= request.email %></span><br>
+             <span><a href="/requests/<%= request.id %>">See details</a></span>
              </p>
 			<% end %>
 		</div>
