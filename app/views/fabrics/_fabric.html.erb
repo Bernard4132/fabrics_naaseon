@@ -14,7 +14,14 @@
             <br>
           <span>$ <%= (fabric.maleprice / 5.9).round(1) %> <span style="font-size: 12px;"> Male price</span></span></p>
         <% else %>
-        <p><span>$ <%= (fabric.fabprice / 5.9).round(1) %> </span> <span style="font-size: 12px;">Price</span></p>
+        <p>
+          <span>$ <%= (fabric.fabprice / 5.9).round(1) %> </span> <span style="font-size: 12px;">Price</span>
+          <span style="font-size: 12px;">
+            <% if fabric.ctype == "cloth" %>
+             / yard
+            <% end %>
+          </span>
+        </p>
         <% end %>
         
        <!--  <%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -64,6 +71,7 @@
     <%= f.text_field :phonenumber, :class => "form-control", :placeholder => "Your phone number." %>
   </div>
 
+<% if fabric.ctype == "kente" %>
   <div class="form-group">
     <label style="font-weight: 500;">For Male / Female</label>
     <br>
@@ -74,9 +82,37 @@
     Female
     </span>
     <div id="ValidationError" name="ValidationError" style="color: red;">
-    &nbsp;
+    
     </div>
   </div>
+
+  <% end %>
+
+  <% if fabric.ctype == "cloth" %>
+
+  <div class="form-group">
+    <label style="font-weight: 500;">How many yards of cloth</label>
+    <select class="form-control" name="request[yards]" id="request_yards">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+  </select>
+  </div>
+
+  <% end %>
 
   <p style="margin-top: 10px; font-weight: 500;"> Your prefered payment method.</p>
   <input type="radio" name="request[paymentmethod]" id="request_paymentmethod" name="order[delivery]"value="Mobile Money" onclick="calculateTotal()" />
