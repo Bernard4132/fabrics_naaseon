@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fabric_id: 1
+  user_id: 1
+  yardsnumber: 1
+  yardtype: MyString
+  sewornot: MyString
+
+two:
+  fabric_id: 1
+  user_id: 1
+  yardsnumber: 1
+  yardtype: MyString
+  sewornot: MyString

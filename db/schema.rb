@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200517180910) do
+ActiveRecord::Schema.define(version: 20210131181908) do
 
   create_table "clothes", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20200517180910) do
     t.string   "email"
     t.boolean  "fulfilled",      default: false
     t.text     "message"
+  end
+
+  create_table "productorders", force: :cascade do |t|
+    t.integer  "fabric_id"
+    t.integer  "user_id"
+    t.integer  "yardsnumber"
+    t.string   "yardtype"
+    t.string   "sewornot"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "requests", force: :cascade do |t|

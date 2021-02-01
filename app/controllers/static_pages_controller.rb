@@ -1,6 +1,8 @@
 class StaticPagesController < ApplicationController
 
-def home	
+def home
+@kentefabrics = Fabric.where(ctype: "kente").last(6)
+@clothfabrics = Fabric.where(ctype: "cloth").last(6)	
 end
 
 def about	

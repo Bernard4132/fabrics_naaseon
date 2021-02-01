@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fabric:</strong>
+  <%= @productorder.fabric_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @productorder.user_id %>
+</p>
+
+<p>
+  <strong>Yardsnumber:</strong>
+  <%= @productorder.yardsnumber %>
+</p>
+
+<p>
+  <strong>Yardtype:</strong>
+  <%= @productorder.yardtype %>
+</p>
+
+<p>
+  <strong>Sewornot:</strong>
+  <%= @productorder.sewornot %>
+</p>
+
+<%= link_to 'Edit', edit_productorder_path(@productorder) %> |
+<%= link_to 'Back', productorders_path %>

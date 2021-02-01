@@ -4,7 +4,9 @@
         <img src="<%= fabric.fabricimage %>" class="img-fluid">
         <p style="text-align: left;  margin-top: 10px; margin-bottom: 0;">
         	<span style="font-weight: 500; font-size: 18px;"><%= fabric.title %></span><br>
-        	<span style="font-weight: 300; font-size: 12px;"><%= fabric.price %></span>
+        	<span style="font-weight: 300; font-size: 12px;"><%= fabric.price %></span><br>
+          <h1><span><a href="/fabrics/<%= fabric.id %>">Fabric</a></span></h1>
+          
         </p>
 
         <% if fabric.ctype == "kente" %>
@@ -23,6 +25,7 @@
           </span>
         </p>
         <% end %>
+
         <!-- 
         <%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%= link_to 'Edit', edit_fabric_path(fabric) %> 

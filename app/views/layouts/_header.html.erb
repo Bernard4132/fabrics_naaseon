@@ -1,27 +1,10 @@
-
-
-
 <style type="text/css">
-
- a {
-  text-decoration: none;
-  background-color: transparent;
-  -webkit-text-decoration-skip: objects;
+          .navbackground {
+  background-color: rgba(255,255,255, 1);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
 }
-
-a:hover {
-  text-decoration: none;
-}
-
-
-  .navbackground{
-     background-color: #ffffff;
-    -webkit-box-shadow: 0px 0px 35px -1px rgba(0,0,0,0.89);
--moz-box-shadow: 0px 0px 35px -1px rgba(0,0,0,0.89);
-box-shadow: 0px 0px 35px -1px rgba(0,0,0,0.89);
-  }
-
-
 
 .navbar-brand1 {
   display: inline-block;
@@ -31,21 +14,29 @@ box-shadow: 0px 0px 35px -1px rgba(0,0,0,0.89);
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
+  text-decoration: none;
+  margin-right: 80px;
+}
+
+a.navbar-brand1 {
+  color: #ffc100; 
+}
+
+a {
+  text-decoration: none;
 }
 
 
 
 
 .navbar-light .navbar-brand1{
-color: #000; 
-font-weight: 700;
-font-family: 'Poppins', sans-serif;
+
+font-weight: 600;
 }
 
 .navbar-scroll{
 color: #000; 
-font-weight: 700;
-font-family: 'Poppins', sans-serif;
+font-weight: 600;
 }
 
 .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
@@ -57,12 +48,13 @@ font-family: 'Poppins', sans-serif;
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #ffc000;
-  font-weight: 300;
-  font-family: 'Asap Condensed', sans-serif;
-  transition: border-color .5s ease-in-out;
-    -webkit-transition: border-color .5s ease-in-out;
-    -moz-transition: border-color .5s ease-in-out;
+  color: #1c1c1b;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  transition: background-color .5s ease-in-out;
+    -webkit-transition: background-color .5s ease-in-out;
+    -moz-transition: background-color .5s ease-in-out;
   border-bottom: 4px solid transparent;
 }
 
@@ -72,15 +64,19 @@ font-family: 'Poppins', sans-serif;
 }
 
 .navbar-light .navbar-nav .nav-link:focus {
-  color: #ffc000;
+  color: #1c1c1b;
   font-weight: 700;
-  border-bottom-color:#ffc000;
+  /*border-bottom-color:#f17100;*/
 }
 
  .navbar-light .navbar-nav .nav-link:hover {
-  color: #ffc000;
+  color: #1c1c1b;
+  background-color: transparent;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-weight: 700;
-  border-bottom-color: #ffc000;
+  
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -91,11 +87,52 @@ font-family: 'Poppins', sans-serif;
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-  color: #ffffff;
-  font-weight: 500;
-  background-color: #ffc000;
-  border-radius: 3px;
-  padding: 5px;
+  color: #D0021B;
+  background-color: transparent;
+  border: 3px solid #D0021B;
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 700;
+  margin-left: 20px;
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent !important;
+}
+.navbar-toggler:hover {
+  background: transparent !important;
+}
+.navbar-toggler .icon-bar {
+  display:block;
+  background-color: #1b1464;
+  width: 26px;
+  height: 2px;
+  transition: all 0.2s;
+}
+.navbar-toggler .icon-bar+.icon-bar{
+  margin-top: 5px;
+}
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
 }
 
 .dropdown-menu {
@@ -108,11 +145,11 @@ font-family: 'Poppins', sans-serif;
   min-width: 10rem;
   padding: 0.5rem 0;
   margin: 1rem 0 0;
-  font-size: 1rem;
+  font-size: 14px;
   color: #212529;
   text-align: left;
   list-style: none;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 1);
   background-clip: padding-box;
   border-radius: 0rem;
 }
@@ -132,7 +169,6 @@ font-family: 'Poppins', sans-serif;
   clear: both;
  color: #000000;
   font-weight: 300;
-  font-family: 'Exo 2', sans-serif;
   text-align: inherit;
   white-space: nowrap;
   background: none;
@@ -142,7 +178,8 @@ font-family: 'Poppins', sans-serif;
 .dropdown-item:focus, .dropdown-item:hover {
   color: #ffffff;
   text-decoration: none;
-  background-color: #ffc000;
+  background-color: #1b1464;
+  font-weight: 500;
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -156,111 +193,317 @@ font-family: 'Poppins', sans-serif;
   background-color: transparent;
 }
 
-.holdformsi{
-  padding: 50px;
-}
-
-
-
-.js-reveal {
-  opacity: 1;
-  transition: opacity .7s ease-in, margin-top .7s ease-out;
-}
-
-.js-reveal--hidden {
-  opacity: 0;
-  margin-top: 3em;
-}
-
-.carousel-caption {
-  position: absolute;
-  right: 15%;
-  bottom: 20px;
-  left: 15%;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: #fff;
-  text-align: left;
-}
-
-.farmprodssection{
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
-  background-color: #ffffff;
-}
-
-.landhypes{
-  margin-top: 15px;
-}
-
-.infoaddlh{
+.apppartner {
+  background-color: #ffb900;
+  color: #0b1936;
   font-size: 18px;
-  text-align: justify;
-  font-weight: 300;
-  line-height: 30px;
+  border-radius: 0px;
+  border: none;
 }
 
-.ayoon{
-  border-radius: 12px;
-  -webkit-box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.4);
--moz-box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.4);
-box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.4);
+.btnsearch {
+  background-color: #ffc100;
+  border-bottom: 2px solid #ffc100;
+  color: #ffffff;
+  border-radius: 0px;
 }
 
-.mycolorbtnw{
-  background-color: #ffffff;
-  color: #000;
+.btnsearch:hover {
+  background-color: #ffc100;
+  border-bottom: 2px solid #ffc100;
+  color: #ffffff;
+  border-radius: 0px;
 }
 
-.mycolorbtnw:hover{
-  background-color: #f2f2f2;
-  color: #000;
+.btnsearch:active {
+  background-color: #ffc100;
+  border-bottom: 2px solid #ffc100;
+  color: #ffffff;
+  border-radius: 0px;
 }
 
-.mycolorbtnw:active{
-  background-color: #f2f2f2;
-  color: #000;
+.textholder {
+  text-align: center;
 }
 
-</style>
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #9B9B9B;
+            font-size: 13px;
+            opacity: 0.4; /* Firefox */
+}
 
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #9B9B9B;
+            font-size: 13px;
+            opacity: 0.4; /* Firefox */
+}
 
-<nav class="navbar navbar-light navbar-expand-lg fixed-top navbackground">
-      <div class="container">
-        <a class="navbar-brand1" href="/" style=""><img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/naaseonfabrics/naaseonlogo231_nrinug.png" width="75px" height="55px" style="margin-right:5px;">
-          <span style="position:relative; top: 3px; color: #ffc000;">Naaseon Fabrics</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+            color: #9B9B9B;
+            font-size: 13px;
+            opacity: 0.4; /* Firefox */
+ }
+
+ .hometopmenumobile {
+  display: none;
+ }
+
+ .submenumobile {
+  display: none;
+ }
+
+@media only screen and (min-width : 100px) and (max-width : 600px) {
+  .fht {
+    margin-top: 30px;
+  }
+
+  a.navbar-brand1 {
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  .hidetopbarred {
+    display: none;
+  }
+
+  .navbar-toggler {
+    display: none;
+  }
+
+  .hometopmenumobile {
+    display: block;
+  }
+
+  .submenumobile {
+    display: block;
+    background-color: #ffffff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    -webkit-box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
+-moz-box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
+box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
+  }
+
+  .btnsearch {
+    background-color: #f7af45;
+  }
+
+  .live__scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.live__scroll .row{
+  display: block;
+}
+
+.live__scroll .live__scroll--box2 {
+  display: inline-block;
+  float: none;
+  background-color: #ffc100;
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: 15px;
+  text-align: center;
+} 
+
+.navbar {
+  background-color: #ffc100;
+}
+
+}
+  </style>
+
+  <body style="font-family: 'Montserrat', sans-serif; background-color: rgba(216,216,216,0.3);">
+
+    <nav class="navbar navbar-light navbar-expand-lg navbackground dottt" style="z-index: 99;">
+      <div class="container navbodyhold">
+      <a class="navbar-brand1" href="/" style="font-family: 'Montserrat', sans-serif; text-decoration: none;">
+      <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/naaseonfabrics/naaseonlogo231_nrinug.png" width="55px" height="40px" style="margin-right:5px;">
+      <span>Naaseon</span>
+      <span>Fabrics</span>
+      </a>
+      <p style="padding-top: 15px;" class="hometopmenumobile">
+        <span style="color: #ffffff; font-weight: 400; font-size: 14px;">Hello, 
+          <% if user_signed_in? %>
+          <a href="" style="color: #ffffff; font-weight: 600; font-size: 14px;">Bernard</a></span>
+          <% else %>
+           <a href="/users/sign_in" style="color: #ffffff; font-weight: 600; font-size: 14px;">Login</a></span> 
+          <% end %>
+
+        <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/acct.png" class="img-fluid" width="25px" height="25px" style="margin-left: 3px;">
+      </p>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar top-bar"></span>
+          <span class="icon-bar middle-bar"></span>
+          <span class="icon-bar bottom-bar"></span>
         </button>
+        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar top-bar"></span>
+          <span class="icon-bar middle-bar"></span>
+          <span class="icon-bar bottom-bar"></span>
+        </button> -->
         <div class="collapse navbar-collapse" id="navbarResponsive">
+
+          <div class="row no-gutters">
+            <div class="col-lg-10">
+              <input class="form-control" style="width: 400px; border-radius: 0px; border: 2px solid #D0CCCC;" type="search" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btnsearch" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+          </div>
+
+         <!--  <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" style="width: 400px; border-radius: 50px; border: 2px solid #eaeaea;" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form> -->
+
           <ul class="navbar-nav ml-auto">
+
             <li class="nav-item">
-              <a class="nav-link" href="/">Home
+              <a class="nav-link" id="changecolor2" href="#!"> 
+                <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/information+copy.png" width="16px;">
+                Help
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="/about">About Us</a>
-            </li>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Crystal Beauty Collections
+              <a class="nav-link" id="changecolor2" href="/users/sign_in"> 
+                <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/login+copy2.png" width="16px">
+                Login
+                <span class="sr-only">(current)</span>
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/kenteclothes">Kente Fabric</a>
-                <a class="dropdown-item" href="/fabricsclothes">Cloth Fabric</a>
-                <a class="dropdown-item" href="/fascinators">Fascinators</a>
-              </div>
             </li>
-           <li class="nav-item">
-              <a class="nav-link" href="/contacts/new">Contact Us</a>
+
+            <li class="nav-item">
+              <a class="nav-link" id="changecolor2" href="/ourproducts"> |
+                <span class="sr-only">(current)</span>
+              </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/orders/new">Buy Online</a>
+
+            <li class="nav-item">
+              <a class="nav-link" id="changecolor2" href="/users/sign_up"> 
+                <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/add-group+copy.png" width="16px">
+                About Us
+                <span class="sr-only">(current)</span>
+              </a>
             </li>
+
+            
+
+            
+           
+          
           </ul>
         </div>
       </div>
     </nav>
+    <section class="hidetopbarred" style="padding-top: 12px; padding-bottom: 12px; padding-left: 50px; padding-right: 50px; margin-top: 0px; background-color: #ffc100;">
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="textholder">
+            <a href="/products" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600;">
+              Kente Fabric
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="textholder">
+            <a href="/services" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600;">
+              Material Fabric
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="textholder">
+            <a href="/services" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600;">
+              Fascinators
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      
+    </div>
+    <div class="col-lg-3">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="textholder">
+            <a href="" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 400;">
+              <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/conversation+(1).png" width="18px">
+              Requests
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="textholder">
+            <% if user_signed_in? %>
+            <a href="/homeprofile" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 400;">
+              <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/acct.png" width="18px">
+              Accounts
+            </a>
+            <% else %>
+            <a href="" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 400;">
+              <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/acct.png" width="18px">
+              Accounts
+            </a>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="textholder">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="submenumobile">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-9">
+         <div class="row no-gutters">
+            <div class="col-lg-10 col-10">
+              <input class="form-control" style="width: 100%; border-bottom-left-radius: 10px; border-top-left-radius: 10px; border-top-right-radius: 0px; border-bottom-right-radius: 0px;" type="search" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-lg-2 col-2">
+              <button class="btn btnsearch" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-2 col-3" style="text-align: center;">
+        <a href="" style="color: #4a4a4a; text-decoration: none; text-align: center; font-size: 12px; font-weight: 400; margin-left: 3px;">
+          
+          <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/conversation1.png" width="22px">
+          <span>Requests</span>
+        </a>
+      </div>
+    </div>
+    <div class="live__scroll">
+      <div class="row" style="margin-top: 15px;">
+        <div class="col-3 live__scroll--box2">
+          <a href="/kenteclothes" style="color: #ffffff; font-size: 15px; font-weight: 500; text-decoration: none;">Kente Fabrics</a>
+        </div>
+        <div class="col-3 live__scroll--box2">
+          <a href="/fabricsclothes" style="color: #ffffff; font-size: 15px; font-weight: 500; text-decoration: none;">Material</a>
+        </div>
+        <div class="col-3 live__scroll--box2">
+          <a href="/fascinators" style="color: #ffffff; font-size: 15px; font-weight: 500; text-decoration: none;">Facinatiors</a>
+        </div>
+        <div class="col-3 live__scroll--box2">
+          <a href="#!" style="color: #ffffff; font-size: 15px; font-weight: 500; text-decoration: none;">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
