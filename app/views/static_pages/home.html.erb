@@ -284,7 +284,9 @@ box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.4);
              <% @kentefabrics.find_all do |fabric| %>
                 <div class="col-lg-4 col-md-6 col-6">
                   <div class="prophold">
-                    <img src="<%= fabric.fabricimage %>" class="img-fluid">
+                    <a href="/fabrics/<%= fabric.id %>">
+                      <img src="<%= fabric.fabricimage %>" class="img-fluid">
+                    </a>
                     <p style="text-align: left;  margin-top: 10px; margin-bottom: 0;">
                       <span style="font-weight: 500; font-size: 18px;"><%= fabric.title %></span><br>
                       <span style="font-weight: 300; font-size: 12px;"><%= fabric.price %></span><br>
@@ -329,7 +331,9 @@ box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.4);
              <% @clothfabrics.find_all do |fabric| %>
                 <div class="col-lg-4 col-md-6 col-6">
                   <div class="prophold">
-                    <img src="<%= fabric.fabricimage %>" class="img-fluid">
+                    <a href="/fabrics/<%= fabric.id %>">
+                      <img src="<%= fabric.fabricimage %>" class="img-fluid">
+                    </a>
                     <p style="text-align: left;  margin-top: 10px; margin-bottom: 0;">
                       <span style="font-weight: 500; font-size: 18px;"><%= fabric.title %></span><br>
                       <span style="font-weight: 300; font-size: 12px;"><%= fabric.price %></span><br>
