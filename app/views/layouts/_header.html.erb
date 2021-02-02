@@ -329,7 +329,7 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
           <% if user_signed_in? %>
           <a href="" style="color: #ffffff; font-weight: 600; font-size: 14px;">Bernard</a></span>
           <% else %>
-           <a href="/users/sign_in" style="color: #ffffff; font-weight: 600; font-size: 14px;">Login</a></span> 
+           <a data-toggle="modal" href="#loginModal" style="color: #ffffff; font-weight: 600; font-size: 14px;">Login</a></span> 
           <% end %>
 
         <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/acct.png" class="img-fluid" width="25px" height="25px" style="margin-left: 3px;">
@@ -494,7 +494,7 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
           <span>My Orders</span><span>(<%= current_user.productorders.where(paid: false).count %>)</span>
         </a>
         <% else %>
-          <a data-toggle="modal" href="#loginModal" style="color: #4a4a4a; text-decoration: none; text-align: center; font-size: 12px; font-weight: 400; margin-left: 3px;">
+          <a data-toggle="modal" href="#myordersModal" style="color: #4a4a4a; text-decoration: none; text-align: center; font-size: 12px; font-weight: 400; margin-left: 3px;">
           <i class="fa fa-shopping-basket" style="font-size: 18px;" aria-hidden="true"></i>
           <span>My Orders</span>
         </a>
@@ -529,11 +529,11 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
 <% end %>
 
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="myordersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">My Orders.</h5>
+        <h5 class="modal-title" id="exampleModalLabel">My Orders</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -548,6 +548,37 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Kindly login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for(:user, :url => session_path(:user)) do |f| %>
+      <div class="modal-body">
+           <div class="form-group">
+            <label>Email</label>
+             <%= f.text_field :email, :class =>"form-control",placeholder: "Email", value:"" %>
+           </div>
+           <div class="form-groupr">
+            <label>Password</label>
+             <%= f.password_field :password,:label =>"Password", :class =>"form-control", placeholder:"Password", value:""%>
+           </div>
+           <br>
+           <%= f.check_box :remember_me, label: "Remember me", value: "true" %>
+           <%= f.label :remember_me %>   
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
