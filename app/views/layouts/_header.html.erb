@@ -372,6 +372,10 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
               </a>
             </li>
 
+            <% if user_signed_in? %>
+
+            <% else %>
+
             <li class="nav-item">
               <a class="nav-link" id="changecolor2" href="/users/sign_in"> 
                 <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/login+copy2.png" width="16px">
@@ -379,6 +383,8 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+
+            <% end %>
 
             <li class="nav-item">
               <a class="nav-link" id="changecolor2" href="/ourproducts"> |
@@ -446,14 +452,14 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
         <div class="col-lg-5">
           <div class="textholder">
             <% if user_signed_in? %>
-            <a href="/homeprofile" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 400;">
+            <a href="/myorders" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 400;">
               <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/acct.png" width="18px">
-              Accounts
+              My Orders <span>(<%= current_user.productorders.where(paid: false).count %>)</span>
             </a>
             <% else %>
             <a href="" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 400;">
               <img src="https://nikasemo-static.s3-us-west-2.amazonaws.com/dianimton-assets/web+assets/acct.png" width="18px">
-              Accounts
+              Account
             </a>
             <% end %>
           </div>
@@ -482,10 +488,17 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
           </div>
       </div>
       <div class="col-lg-2 col-3" style="text-align: center;">
-        <a href="" style="color: #4a4a4a; text-decoration: none; text-align: center; font-size: 12px; font-weight: 400; margin-left: 3px;">
+        <% if user_signed_in? %>
+        <a href="/myorders" style="color: #4a4a4a; text-decoration: none; text-align: center; font-size: 12px; font-weight: 400; margin-left: 3px;">
+          <i class="fa fa-shopping-basket" style="font-size: 18px;" aria-hidden="true"></i>
+          <span>My Orders</span><span>(<%= current_user.productorders.where(paid: false).count %>)</span>
+        </a>
+        <% else %>
+          <a href="/myorders" style="color: #4a4a4a; text-decoration: none; text-align: center; font-size: 12px; font-weight: 400; margin-left: 3px;">
           <i class="fa fa-shopping-basket" style="font-size: 18px;" aria-hidden="true"></i>
           <span>My Orders</span>
         </a>
+        <% end %>
       </div>
     </div>
     <div class="live__scroll">
@@ -506,3 +519,11 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.18);
     </div>
   </div>
 </section>
+
+
+    <% if notice %>
+<div class="alert alert-success alert-dismissible" role="alert" style="position: absolute; top: 100px; z-index: 99999;>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <p class="notice"><%= notice %></p>
+</div>
+<% end %>

@@ -1,12 +1,12 @@
 
     <div class="col-lg-4 col-md-6 col-sm-12">
       <div class="prophold">
-        <img src="<%= fabric.fabricimage %>" class="img-fluid">
+        <a href="/fabrics/<%= fabric.id %>">
+          <img src="<%= fabric.fabricimage %>" class="img-fluid">
+        </a>
         <p style="text-align: left;  margin-top: 10px; margin-bottom: 0;">
         	<span style="font-weight: 500; font-size: 18px;"><%= fabric.title %></span><br>
         	<span style="font-weight: 300; font-size: 12px;"><%= fabric.price %></span><br>
-          <h1><span><a href="/fabrics/<%= fabric.id %>">Fabric</a></span></h1>
-          
         </p>
 
         <% if fabric.ctype == "kente" %>
@@ -30,7 +30,7 @@
         <%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%= link_to 'Edit', edit_fabric_path(fabric) %> 
         -->
-        <p style="text-align: right;  margin-top: 0px;">
+        <p style="text-align: right;  margin-top: 0px; display: none;">
         	<a class="btn btn-warning bookbtn" data-toggle="modal" href="#bookTourModal_<%= fabric.id %>">Request for this Fabric</a>
         </p>
       </div>

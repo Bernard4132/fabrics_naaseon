@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210131181908) do
+ActiveRecord::Schema.define(version: 20210201121049) do
 
   create_table "clothes", force: :cascade do |t|
     t.string   "name"
@@ -63,8 +63,9 @@ ActiveRecord::Schema.define(version: 20210131181908) do
     t.integer  "yardsnumber"
     t.string   "yardtype"
     t.string   "sewornot"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "paid",        default: false
   end
 
   create_table "requests", force: :cascade do |t|

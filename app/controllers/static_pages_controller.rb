@@ -11,6 +11,10 @@ end
 def fabricsandclothes	
 end
 
+def myorders
+	@myorder = current_user.productorders
+end
+
 def mydashboard
 	if signed_in?
     @allorders = Order.where(fulfilled: false).all

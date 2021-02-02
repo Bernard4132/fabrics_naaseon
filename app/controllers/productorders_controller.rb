@@ -28,7 +28,7 @@ class ProductordersController < ApplicationController
 
     respond_to do |format|
       if @productorder.save
-        format.html { redirect_to @productorder, notice: 'Productorder was successfully created.' }
+        format.html { redirect_to :back, notice: 'Product order was successfully created.' }
         format.json { render :show, status: :created, location: @productorder }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class ProductordersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def productorder_params
-      params.require(:productorder).permit(:fabric_id, :user_id, :yardsnumber, :yardtype, :sewornot)
+      params.require(:productorder).permit(:fabric_id, :user_id, :yardsnumber, :yardtype, :sewornot, :paid)
     end
 end

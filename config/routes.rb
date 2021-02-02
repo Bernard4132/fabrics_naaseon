@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   match 'fascinators', to: 'fabrics#fascinators', via: 'get'
   match 'fabricsandclothes', to: 'static_pages#fabricsandclothes', via: 'get'
   match 'mydashboard', to: 'static_pages#mydashboard', via: 'get'
+  match 'myorders', to: 'static_pages#myorders', via: 'get'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
