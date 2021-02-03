@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :productorders
+  resources :productorders do
+    collection { post :update_paid}
+  end
   resources :requests
   resources :fabrics
   devise_for :users

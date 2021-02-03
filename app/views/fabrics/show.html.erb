@@ -138,6 +138,12 @@ input[type=number]::-webkit-outer-spin-button {
 			    <input type="radio" value="no" name="productorder[sewornot]" id="productorder_sewornot" /> No
 			  </div>
 
+			  <div class="form-group">
+			    <label style="font-weight: 700;">What's your gender?</label><br>
+			   	<input type="radio" value="male" name="productorder[gender]" id="productorder_gender" /> Male 
+			    <input type="radio" value="female" name="productorder[gender]" id="productorder_gendert" /> Female
+			  </div>
+
 			<p>
 				<% if user_signed_in? %>
 					<button class="btn btn-lg btn-success" style="width: 100%;">

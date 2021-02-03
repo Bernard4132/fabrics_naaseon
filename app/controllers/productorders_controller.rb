@@ -37,6 +37,14 @@ class ProductordersController < ApplicationController
     end
   end
 
+  def update_paid
+    productorderid = params[:productorder_id]
+    @productorder = Productorder.find(productorderid)
+    @productorder.update(paid: "true")
+    render :status => 200,
+           :json => @productorder
+  end
+
   # PATCH/PUT /productorders/1
   # PATCH/PUT /productorders/1.json
   def update
@@ -69,6 +77,6 @@ class ProductordersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def productorder_params
-      params.require(:productorder).permit(:fabric_id, :user_id, :yardsnumber, :yardtype, :sewornot, :paid)
+      params.require(:productorder).permit(:fabric_id, :user_id, :yardsnumber, :yardtype, :sewornot, :paid, :gender)
     end
 end

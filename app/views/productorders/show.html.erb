@@ -1,29 +1,129 @@
-<p id="notice"><%= notice %></p>
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10">
+      <div class="row">
+      <div class="col-lg-3 col-3">
+      <img src="<%= @productorder.fabric.fabricimage %>" class="img-fluid">
+    </div>
+    <div class="col-lg-9 col-9">
+      <p style="margin-bottom: 0px;"><%= @productorder.fabric.price %></p>
+      <% if @productorder.fabric.ctype == "kente" %>
+            <p style="margin-bottom: 5px;">
+              <span style="font-weight: 700;">Price</span><br>
+              <span style="font-size: 22px;">$ <%= (@productorder.fabric.fabprice / 5.1).round(1) %></span> <span style="font-size: 12px;"> Female price</span>
+              <br>
+              <span style="font-size: 16px;">GH&#162; <%= @productorder.fabric.fabprice %></span> <span style="font-size: 12px;"></span><br>
+            <span style="font-size: 22px;">$ <%= (@productorder.fabric.maleprice / 5.1).round(1) %> <span style="font-size: 12px;"> Male price</span></span>
+            <br>
+            <span style="font-size: 16px;">GH&#162; <%= @productorder.fabric.maleprice %></span> <span style="font-size: 12px;"></span><br>
+            </p>
+          <% else %>
+          <p>
+            <span style="font-size: 22px;">$ <%= (@productorder.fabric.fabprice / 5.1).round(1) %> </span> <span style="font-size: 12px;">Price</span>
+            <span style="font-size: 12px;">
+              <% if @productorder.fabric.ctype == "cloth" %>
+               / yard
+              <% end %>
+            </span>
+          </p>
+          <% end %>
+          <p style="margin-bottom: 5px;">Paid: <%= @productorder.paid %></p>
+          <% if @productorder.paid == false %>
+            <p>
+          <form >
+          <script src="https://js.paystack.co/v1/inline.js"></script>
+          <p style="text-align: left;">
+          <button type="button" class="btn btn-lg btn-success btnformpay" id="paymentbutton" onclick="payWithPaystack()"> 
+          Make Payment 
+          </button>
+        </form>
+          </p>
+          <% else %>
+            <p>Awaiting fulfilment</p>
+          <% end %>
+    </div>
+  </div>
 
-<p>
-  <strong>Fabric:</strong>
-  <%= @productorder.fabric_id %>
-</p>
+  </div>
+  </div>
+</div>
+<br><br><br>
 
-<p>
-  <strong>User:</strong>
-  <%= @productorder.user_id %>
-</p>
 
-<p>
-  <strong>Yardsnumber:</strong>
-  <%= @productorder.yardsnumber %>
-</p>
+      
+   
 
-<p>
-  <strong>Yardtype:</strong>
-  <%= @productorder.yardtype %>
-</p>
 
-<p>
-  <strong>Sewornot:</strong>
-  <%= @productorder.sewornot %>
-</p>
+<script>
 
-<%= link_to 'Edit', edit_productorder_path(@productorder) %> |
-<%= link_to 'Back', productorders_path %>
+ var price = 0;
+
+  <% if @productorder.gender == "male" %>
+    price = <%= @productorder.fabric.maleprice %>
+  <% end %>
+
+  <% if @productorder.gender == "female" %>
+    price = <%= @productorder.fabric.fabprice %>
+  <% end %>
+
+  $.ajax('update_paid', {
+        type: 'POST',
+        data: {
+          productorder_id: <%= @productorder.id.to_i %>
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          return console.log("AJAX Error: " + errorThrown);
+        },
+        success: function(data, textStatus, jqXHR) {
+          
+          console.log(data);
+          location.reload;
+          return console.log("Payment status ypdated");
+        }
+      });
+
+  function payWithPaystack(){
+     
+    var handler = PaystackPop.setup({
+      key: 'pk_live_8a40483553b17e3ddefa0cd1a64e62c88677433a',
+      email: "<%= current_user.email.to_s %>",
+      amount: price * 100,
+      currency: "GHS",
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+233553393260"
+            }
+         ]
+      },
+      callback: function(response){
+          
+        return $.ajax('update_paid', {
+        type: 'POST',
+        data: {
+          productorder_id: <%= @productorder.id.to_i %>
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          return console.log("AJAX Error: " + textStatus);
+        },
+        success: function(data, textStatus, jqXHR) {
+          
+          console.log(data);
+          location.reload;
+          return console.log("Payment status ypdated");
+        }
+      });
+
+          
+      },
+      onClose: function(){
+          alert('window closed');
+      }
+    });
+    handler.openIframe();
+  }
+</script>
