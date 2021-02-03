@@ -14,7 +14,7 @@ class FabricsController < ApplicationController
      @productorder = Productorder.new
   end
 
-  # GET /fabrics/new
+  # GET /fabrics/new 
   def new
     @fabric = Fabric.new
   end

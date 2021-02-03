@@ -12,12 +12,19 @@
         <% if fabric.ctype == "kente" %>
           <p>
             <span>Price</span><br>
+            <% if fabric.fabprice %>
             <span>$ <%= (fabric.fabprice / 5.1).round(1) %></span> <span style="font-size: 12px;"> Female price</span>
+            <% end %>
             <br>
-          <span>$ <%= (fabric.maleprice / 5.1).round(1) %> <span style="font-size: 12px;"> Male price</span></span></p>
+            <% if fabric.maleprice %>
+          <span>$ <%= (fabric.maleprice / 5.1).round(1) %> <span style="font-size: 12px;"> Male price</span></span>
+            <% end %>
+        </p>
         <% else %>
         <p>
+          <% if fabric.fabprice %>
           <span>$ <%= (fabric.fabprice / 5.1).round(1) %> </span> <span style="font-size: 12px;">Price</span>
+          <% end %>
           <span style="font-size: 12px;">
             <% if fabric.ctype == "cloth" %>
              / yard

@@ -67,21 +67,7 @@
     price = <%= @productorder.fabric.fabprice %>
   <% end %>
 
-  $.ajax('update_paid', {
-        type: 'POST',
-        data: {
-          productorder_id: <%= @productorder.id.to_i %>
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          return console.log("AJAX Error: " + errorThrown);
-        },
-        success: function(data, textStatus, jqXHR) {
-          
-          console.log(data);
-          location.reload;
-          return console.log("Payment status ypdated");
-        }
-      });
+  
 
   function payWithPaystack(){
      
@@ -102,13 +88,13 @@
       },
       callback: function(response){
           
-        return $.ajax('update_paid', {
+       $.ajax('update_paid', {
         type: 'POST',
         data: {
           productorder_id: <%= @productorder.id.to_i %>
         },
         error: function(jqXHR, textStatus, errorThrown) {
-          return console.log("AJAX Error: " + textStatus);
+          return console.log("AJAX Error: " + errorThrown);
         },
         success: function(data, textStatus, jqXHR) {
           
