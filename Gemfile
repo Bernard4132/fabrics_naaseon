@@ -24,7 +24,7 @@ gem 'devise'
 
 gem 'bcrypt', '~> 3.1.11', platforms: [:ruby, :x64_mingw, :mingw]
 
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 
 gem 'fog'
 
